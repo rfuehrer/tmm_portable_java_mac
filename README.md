@@ -19,14 +19,14 @@ A disadvantage is that the start script of TMM has to be adapted again after eac
 4. Navigate to ./Contents/Home
 
 5. Open folder of TMM Mac application in seperate Finder window (via "view content") or console
-6. Navigate to ./Contents/Resources/Java
-7. Create new folder "java_portable" within this folder (./Contents/Resources/Home)
-8. Navigate in this created folder (./Contents/Resources/Home/java_portable)
+6. Navigate to tinyMediaManager.app/Contents/Resources/Java
+7. Create new folder "java_portable" within this folder (tinyMediaManager.app/Contents/Resources/Home)
+8. Navigate in this created folder (tinyMediaManager.app/Contents/Resources/Home/java_portable)
 9. Create sub-folder with JDK version (e.g. "jdk-13.0.1.jdk")
-10. Navigate to this created folder (./Contents/Resources/Home/portabple_java/jdk-13.0.1.jdk)
+10. Navigate to this created folder (tinyMediaManager.app/Contents/Resources/Home/portabple_java/jdk-13.0.1.jdk)
 
-11. Copy all content of JDK finder window (see step 3.)  (note: important folders are "bin" and "lib") to JDK folder of step 9
+11. Copy all content of JDK finder window (see step #3 and #4)  (note: important folders are "bin" and "lib") to JDK folder of step #9 and #10
 
-12. Replace script tinyMediaManagerOSX.sh from this project to app home folder (./Contents/Resources/Home/)  
+12. Replace script tinyMediaManagerOSX.sh from this project to app home folder (tinyMediaManager.app/Contents/Resources/Home/)  
 13. Close all finder windows
 14. Start the mac app
