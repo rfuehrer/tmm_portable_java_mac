@@ -1,20 +1,32 @@
-# tmm_portable_java_mac
-Prepare TinyMediaManager (tmm) with portable java
+# TinyMediaManager (TMM) with portable Java (Mac)
+Prepare TinyMediaManager (TMM) with portable Oracle Java
 
+## Purpose
+These instructions are for starting TinyMediaManager on the Mac with a portable version of Java. A portable version of Java is stored in the app and the start script of TMM is adapted.
+
+The advantage of this approach is that no Java version has to be installed permanently on the Mac system, but is saved with the app.
+
+A disadvantage is that the start script of TMM has to be adapted again after each update, because the update resets the shell script again. If TMM is started via an external script or macro (e.g. Keyboard Maestro), this can be ensured every time TMM is started.
+
+## Restriction
+- does not work with OpenJDK
+- need to be prepared after every update of TMM
+
+## Installation
 1. Download latest Oracke SE (https://www.oracle.com/technetwork/java/javase/downloads/index.html) (NOTE: OpenJDK not supported; TMM won't start correctly)
 2. Extract JDK (tar or dmg) archive locally (or view via "Suspicious Package")
 3. Enter extracted archive folder
 3. Navigate to ./Contents/Home
----
-4. Open TMM Mac application in seperate Finder window (via "view content")
+
+4. Open folder of TMM Mac application in seperate Finder window (via "view content") or console
 5. Navigate to ./Contents/Resources/Java
-6. Create folder "java_portable" within this folder (./Contents/Resources/Home)
+6. Create new folder "java_portable" within this folder (./Contents/Resources/Home)
 7. Navigate in this created folder (./Contents/Resources/Home/java_portable)
 8. Create sub-folder with JDK version (e.g. "jdk-13.0.1.jdk")
 9. Navigate to this created folder (./Contents/Resources/Home/portabple_java/jdk-13.0.1.jdk)
 ---
-10. Copy all content of JDK finder window (note: important folders are "bin" and "lib")
-11. Close all finder windows
+10. Copy all content of JDK finder window (see step 3.)  (note: important folders are "bin" and "lib") to JDK folder of step 9
 ---
-12. Replace tinyMediaManagerOSX.sh with this version
+11. Replace script tinyMediaManagerOSX.sh from this project to app home folder (./Contents/Resources/Home/)  
+12. Close all finder windows
 13. Start the mac app
