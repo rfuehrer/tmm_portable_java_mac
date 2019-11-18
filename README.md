@@ -16,17 +16,17 @@ A disadvantage is that the start script of TMM has to be adapted again after eac
 1. Download latest Oracke SE (https://www.oracle.com/technetwork/java/javase/downloads/index.html) (NOTE: OpenJDK not supported; TMM won't start correctly)
 2. Extract JDK (tar or dmg) archive locally (or view via "Suspicious Package")
 3. Enter extracted archive folder
-3. Navigate to ./Contents/Home
+4. Navigate to ./Contents/Home
 
-4. Open folder of TMM Mac application in seperate Finder window (via "view content") or console
-5. Navigate to ./Contents/Resources/Java
-6. Create new folder "java_portable" within this folder (./Contents/Resources/Home)
-7. Navigate in this created folder (./Contents/Resources/Home/java_portable)
-8. Create sub-folder with JDK version (e.g. "jdk-13.0.1.jdk")
-9. Navigate to this created folder (./Contents/Resources/Home/portabple_java/jdk-13.0.1.jdk)
----
-10. Copy all content of JDK finder window (see step 3.)  (note: important folders are "bin" and "lib") to JDK folder of step 9
----
-11. Replace script tinyMediaManagerOSX.sh from this project to app home folder (./Contents/Resources/Home/)  
-12. Close all finder windows
-13. Start the mac app
+5. Open folder of TMM Mac application in seperate Finder window (via "view content") or console
+6. Navigate to ./Contents/Resources/Java
+7. Create new folder "java_portable" within this folder (./Contents/Resources/Home)
+8. Navigate in this created folder (./Contents/Resources/Home/java_portable)
+9. Create sub-folder with JDK version (e.g. "jdk-13.0.1.jdk")
+10. Navigate to this created folder (./Contents/Resources/Home/portabple_java/jdk-13.0.1.jdk)
+
+11. Copy all content of JDK finder window (see step 3.)  (note: important folders are "bin" and "lib") to JDK folder of step 9
+
+12. Replace script tinyMediaManagerOSX.sh from this project to app home folder (./Contents/Resources/Home/)  
+13. Close all finder windows
+14. Start the mac app
