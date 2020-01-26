@@ -1,5 +1,4 @@
 #!/bin/sh
-# RF patched
 #####################################################################################
 # This is a "kickstarter" for OSX; we need to do some logic here, because in OSX
 # there is no way to provide an updater and the app itself inside one app.
@@ -28,14 +27,19 @@ progdir=`dirname "$PRG"`
 
 # check if tmm has been executed in a read only environment
 if [ ! -w "$progdir" ]; then
-  osascript -e "tell application \"System Events\" to display dialog \"ERROR launching tinyMediaManager!\n\nYou need to execute tinyMediaManager from a writeable location (e.g. the Applications folder)\" with title \"tinyMediaManager\" buttons {\" OK \"} default button 1 with icon path to resource \"tmm.icns\" in bundle (path to me)"
+  osascript -e "tell application \"System Events\" to display dialog \"ERROR launching tinyMediaManager!
+
+You need to execute tinyMediaManager from a writeable location (e.g. the Applications folder)\" with title \"tinyMediaManager\" buttons {\" OK \"} default button 1 with icon path to resource \"tmm.icns\" in bundle (path to me)"
   exit 1
 fi
 
 # By default Mac OS X LC_ALL is set to "C", which means files with special characters will not be found.
 export LC_ALL="en_US.UTF-8"
 
-JAVACMD=$(find .  -type f -name "java" -perm +0111 -print | head -n 1)
+# --- rfuehrer: start ---
+ABSOLUTE_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+"$ABSOLUTE_PATH/openjdk_portable_downloader.sh"
+JAVACMD=$(find "$ABSOLUTE_PATH" -type f -name "java" -perm +0111 -print | head -n 1)
 
 # # search for the right JVM - priority is java 8
 # if [ -x /usr/libexec/java_home ]; then
@@ -51,7 +55,10 @@ JAVACMD=$(find .  -type f -name "java" -perm +0111 -print | head -n 1)
 
 #if [ ! -f "$JAVACMD" -o ! -x "$JAVACMD" ]; then
 #  # display error message with applescript
-#  osascript -e "tell application \"System Events\" to display dialog \"ERROR launching tinyMediaManager!\n\nYou need to have JAVA installed on your Mac!\nVisit http://java.com for more information...\" with title \"tinyMediaManager\" buttons {\" OK \"} default button 1 with icon path to resource \"tmm.icns\" in bundle (path to me)"
+#  osascript -e "tell application \"System Events\" to display dialog \"ERROR launching tinyMediaManager!
+
+##You need to have JAVA installed on your Mac!
+##Visit http://java.com for more information...\" with title \"tinyMediaManager\" buttons {\" OK \"} default button 1 with icon path to resource \"tmm.icns\" in bundle (path to me)"
 #  
 #  # and open java.com
 #  open http://java.com
@@ -59,6 +66,7 @@ JAVACMD=$(find .  -type f -name "java" -perm +0111 -print | head -n 1)
 #  # exit with error
 #  exit 1
 #fi
+# --- rfuehrer: end ---
 
 # have a look if we need to launch the updater or tmm directly
 if [ -f tmm.jar ]; then
@@ -71,4 +79,6 @@ fi
 ARGS="$ARGS -Djava.net.preferIPv4Stack=true -Dappbase=http://www.tinymediamanager.org/"
 
 # execute it :)
-exec "$JAVACMD" ${ARGS} -jar getdown.jar .      
+# --- rfuehrer: start ---
+exec "$JAVACMD" ${ARGS} -jar getdown.jar .
+# --- rfuehrer: end ---
