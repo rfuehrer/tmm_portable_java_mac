@@ -1,6 +1,10 @@
 # TinyMediaManager (TMM) with portable Java (Mac)
 Prepare TinyMediaManager (TMM) with portable Oracle Java
 
+```
+If you need a portable OpenJDK for another project, just take the file openjdk_portable_downloader.sh from the project and include it in your project.
+```
+
 ## Purpose
 
 The main reason for this project is that I don't want to burden my system with a permanently installed Java. The previous integrations have been too hard for me and I consider the installation of a deeply integrated program for the use of only one tool to be inappropriate. 
